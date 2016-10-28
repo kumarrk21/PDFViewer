@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>pdfViewer</members>
+        <members>pdfViewerExampleComponent</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>lcins1_pdfjs</members>
+        <name>StaticResource</name>
+    </types>
+    <version>34.0</version>
+</Package>

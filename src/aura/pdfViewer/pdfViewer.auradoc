@@ -1,0 +1,8 @@
+<aura:documentation access="GLOBAL">
+	<aura:description>
+		The <code>pdfViewer</code> lightning component can be used in other components or lightning apps to display PDF data. This component uses the <a href="https://mozilla.github.io/pdf.js/">PDF.JS</a> library and is very simple to use. Check out the example tab for a sample code and usage. All you need to do is supply this component's <code>pdfData</code> attribute with the PDF data in base64 encoded format 
+	</aura:description>
+	<aura:example name="pdfViewerExampleComponent" ref="c:pdfViewerExampleComponent" label="PDF Viewer Component">
+		<p>This is an example component to show case how to use the pdfViewer component in your org</p>
+	</aura:example>
+</aura:documentation>

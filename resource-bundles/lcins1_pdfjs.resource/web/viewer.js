@@ -8277,9 +8277,12 @@ window.addEventListener('updateviewarea', function (evt) {
   }
   var href =
     PDFViewerApplication.pdfLinkService.getAnchorUrl(location.pdfOpenParams);
-  PDFViewerApplication.appConfig.toolbar.viewBookmark.href = href;
-  PDFViewerApplication.appConfig.secondaryToolbar.viewBookmark.href = href;
-
+  if(PDFViewerApplication.appConfig.toolbar.viewBookmark) {
+    PDFViewerApplication.appConfig.toolbar.viewBookmark.href = href;
+  }
+  if(PDFViewerApplication.appConfig.secondaryToolbar.viewBookmark) {
+    PDFViewerApplication.appConfig.secondaryToolbar.viewBookmark.href = href;
+  }
   // Update the current bookmark in the browsing history.
   PDFViewerApplication.pdfHistory.updateCurrentBookmark(location.pdfOpenParams,
                                                         location.pageNumber);

@@ -7442,7 +7442,8 @@ var PDFViewerApplication = {
     }
 
     var url = this.url.split('#')[0];
-    var filename = getPDFFileNameFromURL(url);
+    // use documents title if exists otherwise do the magic
+    var filename =PDFViewerApplication.documentInfo.Title ? PDFViewerApplication.documentInfo.Title + '.pdf' : getPDFFileNameFromURL(url);    
     var downloadManager = new DownloadManager();
     downloadManager.onerror = function (err) {
       // This error won't really be helpful because it's likely the
@@ -7978,7 +7979,7 @@ function webViewerInitialized() {
 
   var PDFJS = pdfjsLib.PDFJS;
 
-  if (PDFViewerApplication.preferencePdfBugEnabled) {
+  if (PDFViewerApplication.preferencePdfBugEnabled) {    
     // Special debugging flags in the hash section of the URL.
     var hash = document.location.hash.substring(1);
     var hashParams = parseQueryString(hash);
@@ -8115,8 +8116,10 @@ function webViewerInitialized() {
   appConfig.toolbar.presentationModeButton.addEventListener('click',
     SecondaryToolbar.presentationModeClick.bind(SecondaryToolbar));
 
+    /*
   appConfig.toolbar.openFile.addEventListener('click',
     SecondaryToolbar.openFileClick.bind(SecondaryToolbar));
+*/
 
   appConfig.toolbar.print.addEventListener('click',
     SecondaryToolbar.printClick.bind(SecondaryToolbar));
@@ -8125,7 +8128,7 @@ function webViewerInitialized() {
     SecondaryToolbar.downloadClick.bind(SecondaryToolbar));
 
 
-  if (file && file.lastIndexOf('file:', 0) === 0) {
+  if (file && file.lastIndexOf('file:', 0) === 0) {    
     // file:-scheme. Load the contents in the main thread because QtWebKit
     // cannot load file:-URLs in a Web Worker. file:-URLs are usually loaded
     // very quickly, so there is no need to set up progress event listeners.
